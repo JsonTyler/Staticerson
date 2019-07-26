@@ -1,9 +1,15 @@
 from flask import Flask, render_template, url_for
+import os
+
+PHOTO_FOLDER = os.path.join('static', 'photos')
+
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = PHOTO_FOLDER
 
 posts = [
     {
         'author': 'JsonTyler',
+        'image': 'static/photos/introToBlogLaptop-min.jpg',
         'title': 'Intro To Blog: JsonBytes',
         'content': '''Hello and welcome to my blog dubbed JSONBYTES. Topics
         discussed in this blog will be focused on 3 main topics:
@@ -17,6 +23,7 @@ posts = [
     },
     {
         'author': 'JsonTyler',
+        'image' : 'static/photos/bloggerson-min.jpg',
         'title': 'Tkinter Woes: Bloggerson',
         'content': '''Today, I want to talk about a plugin that I created for my blog using python's built in gui package Tkinter. In an effort to get up and going as fast and as organically as possible I opted for a static website for the time being versus a framework.
 
@@ -60,9 +67,9 @@ posts = [
 
 
 @app.route("/")
-@app.route("/home")
+@app.route("/blog")
 def home():
-    return render_template('home.html', posts=posts)
+    return render_template('blog.html', posts=posts)
 
 
 @app.route("/about")
