@@ -4,8 +4,22 @@
         <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
+
+              <span class="icon ">
+                <i class="fas fa-user"></i>
+              </span>
               <a class="mr-2" href="#">{{ post.author }}</a>
-              <small class="text-muted">{{ post.date_posted }}</small>
+
+              <span class="icon ">
+                <i class="fas fa-calendar"></i>
+              </span>
+              <a class="mr-2 text-muted">{{ post.date_posted }}</a>
+
+              <span class="icon ">
+                <i class="fas fa-tags"></i>
+              </span>
+              <a class="mr-2 text-muted">{{ post.tags }}</a>
+
             </div>
             <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
             <img src="{{ post.image }}" width="100%" height=auto>

@@ -19,7 +19,8 @@ posts = [
 
         To learn more about me or my projects feel free to check out my About Me.
         ''',
-        'date_posted': 'June 18, 2019'
+        'date_posted': 'June 18, 2019',
+        'tags': 'intro, blog'
     },
     {
         'author': 'JsonTyler',
@@ -61,7 +62,8 @@ posts = [
         If you are interested in viewing the code you can check it out on my github page which is linked in the About section.
 
         Thank you for reading.''',
-        'date_posted': 'July 1-22, 2019'
+        'date_posted': 'July 1-22, 2019',
+        'tags': 'programming'
     }
 ]
 
