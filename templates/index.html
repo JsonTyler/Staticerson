@@ -1,0 +1,97 @@
+<!--Landing Page Only-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+  <script type="text/javascript" src="https://kit.fontawesome.com/c035ad1537.js"></script>
+  {% if title %}
+      <title>JsonBytes - {{ title }}</title>
+  {% else %}
+      <title>JsonBytes</title>
+  {% endif %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $(document).on('mouseenter', '.enterButton', function() {
+        $(this).find(".control1").delay(0).show(300);
+        $(this).find(".control").remove();
+      })
+    });
+  </script>
+</head>
+
+<!--Fixed navbar on top of page w/ scroll-->
+
+<body class="has-navbar-fixed-top">
+  <section class="hero is-light is-fullheight header-image">
+    <!--Hero header: will stick at the top-->
+    <div class="hero-head">
+
+    </div>
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <div class="typewriter">
+          <h1 class="title">
+            Hello, I'm Jason.
+          </h1>
+        </div>
+
+        <h2 class="sub-title">
+          Developer - Photographer - Traveler
+        </h2>
+
+        <br>
+
+
+        <!--<a class="button is-dark is-inverted is-outlined is-rounded is-medium is-hovered">Enter</a>-->
+        <div class="enterButton">
+          <div class="field is-grouped is-grouped-centered is-exapnded">
+            <p class="control1">
+              <a class="control1 button is-dark is-rounded is-large"  href="{{ url_for('blog') }}" style="display: none;">
+                <span class="control1 iconhas-text-info">Enter</span>
+              </a>
+            </p>
+          </div>
+
+          <div class="field is-grouped is-grouped-centered is-expanded">
+            <p class="control">
+              <a class="button is-dark">
+                <span class="iconhas-text-info">
+                  <i class="fas fa-2x fa-code"></i>
+                </span>
+              </a>
+            </p>
+            <p class="control">
+              <a class="button is-dark">
+                <span class="iconhas-text-info">
+                  <i class="fas fa-2x fa-camera"></i>
+                </span>
+              </a>
+            </p>
+            <p class="control">
+              <a class="button is-dark">
+                <span class="iconhas-text-info">
+                  <i class="fas fa-2x fa-shuttle-van"></i>
+
+                </span>
+              </a>
+            </p>
+
+          </div>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br>
+      </div>
+    </div>
+  </section>
+
+  <!--Hero Content: will be in the middle-->
+
+  <!--Content-->
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+/*Custom CSS on top of bulma.io*/
+/*Color Pallette:
+    - #e5f0f2
+    - #cde0e6
+    - #9ebec9
+    - #7197a2
+    - #d4dee0
+    - #626d6f
+
+Base website idea off of: http://mikedekker.com/
+*/
+
+.header-image {
+    background-image: url("/static/photos/headerImageTwo.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #999;
+}
+
+
+body {
+    background-color: black;
+    color: ;
+}
+
+.navbar, .navbar-item{
+    background-color: black;
+    color: white;
+}
+
+.title {
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+
+/*welcome button*/
+.enterButton {
+    height: 100px;
+    background: transparent;
+}
+
+/*Typewriter effect test*/
+.typewriter {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid black; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation:
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end ;
+}
+
+.typewriter {
+    display: inline-block;
+}
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 50% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: black; }
+}

@@ -1,10 +1,9 @@
 from flask import Flask, render_template, url_for
 import os
 
-PHOTO_FOLDER = os.path.join('static', 'photos')
+index_image = 'headerImageTwo.jgp'
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = PHOTO_FOLDER
 
 posts = [
     {
@@ -69,8 +68,11 @@ posts = [
 
 
 @app.route("/")
+def index():
+    return render_template('index.html', image=index_image)
+
 @app.route("/blog")
-def home():
+def blog():
     return render_template('blog.html', posts=posts)
 
 

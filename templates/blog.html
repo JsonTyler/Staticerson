@@ -1,14 +1,14 @@
 {% extends "layout.html" %}
 {% block content %}
     {% for post in posts %}
-        <article class="media content-section">
+        <article class="media content-section bg-light">
           <div class="media-body">
             <div class="article-metadata">
 
               <span class="icon ">
                 <i class="fas fa-user"></i>
               </span>
-              <a class="mr-2" href="#">{{ post.author }}</a>
+              <a class="mr-2" href="{{ url_for('about') }}"">{{ post.author }}</a>
 
               <span class="icon ">
                 <i class="fas fa-calendar"></i>
