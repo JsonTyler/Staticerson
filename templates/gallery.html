@@ -5,7 +5,8 @@
   <div class="card-columns">
     {% for img in images %}
     <div class="card">
-      <img class="card-img-top" style="width:100%; height: auto;" src={{ img.filepath }} />
+      <a href={{ img.filepath }} data-toggle="demolightbox" data-title= "{{ img.location }}" data-footer="{{ img.caption }}"/>
+      <img class="card-img-top img-responsive" style="width:100%; height: auto;" src={{ img.filepath }} />
     </div>
     {% endfor %}
   </div>
