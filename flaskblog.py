@@ -1,8 +1,6 @@
 from flask import Flask, render_template, url_for
 import os
 
-index_image = 'headerImageTwo.jgp'
-
 app = Flask(__name__)
 
 posts = [
@@ -264,17 +262,20 @@ images = [
     }
 ]
 
+blog=" "
+gallery=" "
+
 @app.route("/")
 def index():
     return render_template('index.html', title="Home")
 
 @app.route("/blog")
 def blog():
-    return render_template('blog.html', posts=posts, title="Blog")
+    return render_template('blog.html', posts=posts, title="Blog", blog=blog)
 
 @app.route("/gallery")
 def gallery():
-    return render_template('gallery.html', images=images, title='Gallery')
+    return render_template('gallery.html', images=images, title='Gallery', gallery=gallery)
 
 @app.route("/about")
 def about():
