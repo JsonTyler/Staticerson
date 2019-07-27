@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+<h1 class="text-light">Gallery Page</h1>
+{% block gallery %}
+<div class="container-fluid pt-2">
+  <div class="card-columns">
+    {% for img in images %}
+    <div class="card">
+      <img class="card-img-top" style="width:100%; height: auto;" src={{ img.filepath }} />
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock gallery %}

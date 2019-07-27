@@ -66,15 +66,137 @@ posts = [
     }
 ]
 
+images = [
+    {
+        'filepath': 'static/photos/gallery/about_me.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/cathedralTwo.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/christmasTexas.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/dunes.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/emergencyRoom.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/FerrisWheelWashington.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/flower.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/fourthOfJulySmoke.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/gardensOne.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/gardensTwo.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/home_page2.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/lake.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/landing_page.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/me_at_beach.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/meGumWall.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/meowtropolitan.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/middleOfNowhereLake.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/oceanAgain.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/oceanYetAgain.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/oneTree.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/oregonHotel.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/oregonHotelTwo.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/OregonOutlookSign.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/pathGreen.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/piano.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/pierL.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/publicMarket.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/riverTwo.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/rocksAndOcean.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/seattle.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/spaceNeedle.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/steph.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/sunset_me.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/treeOutlook.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/trees.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/view.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/vines.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/washingtonWaterPower.jpg'
+    },
+    {
+        'filepath': 'static/photos/gallery/waves.jpg'
+    }
+]
 
 @app.route("/")
 def index():
-    return render_template('index.html', image=index_image)
+    return render_template('index.html', title="Home")
 
 @app.route("/blog")
 def blog():
-    return render_template('blog.html', posts=posts)
+    return render_template('blog.html', posts=posts, title="Blog")
 
+@app.route("/gallery")
+def gallery():
+    return render_template('gallery.html', images=images, title='Gallery')
 
 @app.route("/about")
 def about():
