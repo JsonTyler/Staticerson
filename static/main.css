@@ -33,7 +33,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .content-section-sidebar {
-  
+
 }
 
 .article-title {
@@ -81,4 +81,12 @@ a.article-title:hover {
 
 .account-heading {
   font-size: 2.5rem;
+}
+
+.form-check-input {
+  outline: 0.5px solid #ffffff;
+}
+
+.form-check-label {
+  margin-left: .5rem;
 }
