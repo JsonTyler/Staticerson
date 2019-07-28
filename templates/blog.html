@@ -33,13 +33,13 @@
 <div class="content-section-sidebar bg-dark">
   <h3 class="text-light">Blog Topics</h3>
   <h6 class='text-muted bg-dark'>Want to be notified when there's a new post?</h6>
-  <h6 class='text-muted bg-dark'>Sign up <a href="#">Here</a>.</h6>
+  <h6 class='text-muted bg-dark'>Sign up <a href="{{ url_for('register')}}">Here</a>.</h6>
     <ul class="list-group">
       <li class="list-group-item list-group-item-light">Latest Posts</li>
       <li class="list-group-item list-group-item-light">Announcements</li>
       <li class="list-group-item list-group-item-light">Calendars</li>
       <li class="list-group-item list-group-item-light">etc</li>
     </ul>
-  
+
 </div>
 {% endblock sidebar %}
