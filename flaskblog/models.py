@@ -1,10 +1,17 @@
 from datetime import datetime
-from flaskblog import db, login_manager
+from flaskblog import db, login_manager, admin
 from flask_login import UserMixin
+from flask_admin.contrib.sqla import ModelView
 
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
+
+class Test(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    test = db.Column(db.String(30))
+
+admin.add_view(ModelView(Test, db.session))
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
@@ -17,6 +24,7 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return f"User('{self.username}', '{self.email}', '{self.image_file}')"
 
+
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
@@ -26,3 +34,5 @@ class Post(db.Model):
 
     def __repr__(self):
         return f"Post('{self.title}', '{self.date_posted}')"
+
+admin.add_view(ModelView(Post, db.session))
