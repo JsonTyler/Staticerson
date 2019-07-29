@@ -90,3 +90,15 @@ a.article-title:hover {
 .form-check-label {
   margin-left: .5rem;
 }
+
+ /* changed bootstrap info theme to my page's b/w theme for hover/normal */
+.btn-outline-info:hover {
+  background-color: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+.btn-outline-info {
+  color: #fff;
+  border-color: #fff;
+}
