@@ -1,7 +1,30 @@
 from datetime import datetime
-from flaskblog import db, login_manager, admin
+from flask import Response
+from flaskblog import db, login_manager, admin, basic_auth
 from flask_login import UserMixin
 from flask_admin.contrib.sqla import ModelView
+from werkzeug.exceptions import HTTPException
+
+# login failed handler, from:
+# https://computableverse.com/blog/flask-admin-using-basicauth
+class AuthException(HTTPException):
+    def __init__(self, message):
+        super().__init__(message, Response(
+            "You could not be authenticated. Please refresh the page.", 401,
+            {'WWW-Authenticate': 'Basic realm="Login Required"'}
+        ))
+
+
+# overwrite ModelView of flask_admin to restrict access to admin page
+class ModelView(ModelView):
+    def is_accessible(self):
+        if not basic_auth.authenticate():
+            raise AuthException('Not authenticated. Refresh the page.')
+        else:
+            return True
+
+    def inaccessible_callback(self, name, **kwargs):
+        return redirect(basic_auth.challenge())
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -16,12 +39,13 @@ class User(db.Model, UserMixin):
     posts = db.relationship('Post', backref='author', lazy=True)
 
     def __repr__(self):
-        return f"User('{self.username}', '{self.email}', '{self.image_file}')"
+        return f"User('{self.username}, {self.email}, {self.image_file}')"
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    tags = db.Column(db.String(50), nullable=False)
     content = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 

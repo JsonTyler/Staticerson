@@ -2,18 +2,19 @@
 {% block content %}
     {% for post in posts %}
         <article class="media content-section-main bg-light">
+          <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
           <div class="media-body">
             <div class="article-metadata">
 
               <span class="icon ">
                 <i class="fas fa-user"></i>
               </span>
-              <a class="mr-2" href="{{ url_for('about') }}">{{ post.author }}</a>
+              <a class="mr-2" href="{{ url_for('about') }}">{{ post.author.username }}</a>
 
               <span class="icon ">
                 <i class="fas fa-calendar"></i>
               </span>
-              <a class="mr-2 text-muted">{{ post.date_posted }}</a>
+              <a class="mr-2 text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</a>
 
               <span class="icon ">
                 <i class="fas fa-tags"></i>
