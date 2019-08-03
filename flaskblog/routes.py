@@ -276,7 +276,9 @@ def index():
 
 @app.route("/blog")
 def blog():
-    posts = Post.query.all()
+    page = request.args.get('page', 1, type=int)
+    per_page = 5
+    posts = Post.query.order_by(Post.date_posted.desc()).paginate(page, per_page, error_out=False)
     return render_template('blog.html', posts=posts, title="Blog", blog=blog)
 
 @app.route("/gallery")

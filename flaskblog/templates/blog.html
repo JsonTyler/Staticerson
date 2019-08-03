@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-    {% for post in posts %}
+    {% for post in posts.items %}
         <article class="media content-section-main bg-light">
           <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
           <div class="media-body">
@@ -28,6 +28,19 @@
           </div>
         </article>
     {% endfor %}
+    {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+      {% if page_num %}
+        {% if posts.page == page_num %}
+          <a class="btn btn-info mb-4" href="{{ url_for('blog', page=page_num) }}">{{ page_num }}</a>
+        {% else %}
+          <a class="btn btn-outline-info mb-4" href="{{ url_for('blog', page=page_num) }}">{{ page_num }}</a>
+        {% endif %}
+      {% else %}
+      <a class="text-white">...</a>
+      {% endif %}
+    {% endfor %}
+    <!-- {% if posts.has_prev %}<a href="{{ url_for('blog', page=posts.prev_num) }}">Newer posts</a>{% else %}<< Newer posts{% endif %} |
+    {% if posts.has_next %}<a href="{{ url_for('blog', page=posts.next_num) }}">Older posts</a>{% else %}Older posts >>{% endif %} -->
 {% endblock content %}
 
 {% block sidebar %}
