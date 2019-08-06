@@ -2,11 +2,13 @@ import os
 import secrets
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request
-from flaskblog import app, db, bcrypt, basic_auth
-from flaskblog.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm
+from flaskblog import app, db, bcrypt, basic_auth, mail
+from flaskblog.forms import (RegistrationForm, LoginForm, UpdateAccountForm,
+                            PostForm, RequestResetForm, ResetPasswordForm)
 from flaskblog.models import User, Post
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_basicauth import BasicAuth
+from flask_mail import Message
 
 # posts = [
 #     {
@@ -278,7 +280,7 @@ def index():
 def blog():
     page = request.args.get('page', 1, type=int)
     per_page = 5
-    posts = Post.query.order_by(Post.date_posted.desc()).paginate(page, per_page, error_out=False)
+    posts = Post.query.order_by(Post.date_posted.desc()).paginate(page, per_page)
     return render_template('blog.html', posts=posts, title="Blog", blog=blog)
 
 @app.route("/gallery")
@@ -309,11 +311,6 @@ def login():
         return redirect(url_for('blog'))
     form = LoginForm()
     if form.validate_on_submit():
-        # SAVE FOR ADDING ADMIN FUNCTIONALITY LATER
-        # if form.email.data == 'admin@blog.com' and form.password.data == 'password':
-        #     flash('You have been logged in!', 'success')
-        #     return redirect(url_for('blog'))
-        # else:
         user = User.query.filter_by(email=form.email.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user, remember=form.remember.data)
@@ -373,3 +370,47 @@ def new_post():
         flash('Your post has been created!', 'success')
         return redirect(url_for('blog'))
     return render_template('create_post.html', title='New Post', form=form)
+
+def send_reset_email(user):
+    token = user.get_reset_token()
+    msg = Message('Password Reset Request',
+                  sender='jasondreams0513@gmail.com',
+                  recipients=[user.email])
+    msg.body = f'''To reset your password, visit the following link:
+
+{url_for('reset_token', token=token, _external=True)}
+
+If you did not make this request then simply ignore this email and no changes will be made.
+'''
+    mail.send(msg)
+
+# enter email to request a password reset
+@app.route("/reset_password", methods=['GET', 'POST'])
+def reset_request():
+    if current_user.is_authenticated:
+        return redirect(url_for('blog'))
+    form = RequestResetForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        send_reset_email(user)
+        flash('An email has been sent with instructions to reset your password.', 'success')
+        return redirect(url_for('login'))
+    return render_template('reset_request.html', title='Reset Password', form=form)
+
+# reset password with token
+@app.route("/reset_password/<token>", methods=['GET', 'POST'])
+def reset_token(token):
+    if current_user.is_authenticated:
+        return redirect(url_for('blog'))
+    user = User.verify_reset_token(token)
+    if user is None:
+        flash('That is an invalid token', 'warning')
+        return redirect(url_for('reset_request'))
+    form = ResetPasswordForm()
+    if form.validate_on_submit():
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user.password = hashed_password
+        db.session.commit()
+        flash('Your password has been updated! You are now able to log in.', 'success')
+        return redirect(url_for('login'))
+    return render_template('reset_token.html', title='Reset Password', form=form)
