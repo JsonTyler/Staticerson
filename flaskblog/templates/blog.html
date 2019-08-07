@@ -9,7 +9,7 @@
               <span class="icon ">
                 <i class="fas fa-user"></i>
               </span>
-              <a class="mr-2" href="{{ url_for('about') }}">{{ post.author.username }}</a>
+              <a class="mr-2" href="{{ url_for('main.about') }}">{{ post.author.username }}</a>
 
               <span class="icon ">
                 <i class="fas fa-calendar"></i>
@@ -31,23 +31,21 @@
     {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
       {% if page_num %}
         {% if posts.page == page_num %}
-          <a class="btn btn-info mb-4" href="{{ url_for('blog', page=page_num) }}">{{ page_num }}</a>
+          <a class="btn btn-info mb-4" href="{{ url_for('main.blog', page=page_num) }}">{{ page_num }}</a>
         {% else %}
-          <a class="btn btn-outline-info mb-4" href="{{ url_for('blog', page=page_num) }}">{{ page_num }}</a>
+          <a class="btn btn-outline-info mb-4" href="{{ url_for('main.blog', page=page_num) }}">{{ page_num }}</a>
         {% endif %}
       {% else %}
       <a class="text-white">...</a>
       {% endif %}
     {% endfor %}
-    <!-- {% if posts.has_prev %}<a href="{{ url_for('blog', page=posts.prev_num) }}">Newer posts</a>{% else %}<< Newer posts{% endif %} |
-    {% if posts.has_next %}<a href="{{ url_for('blog', page=posts.next_num) }}">Older posts</a>{% else %}Older posts >>{% endif %} -->
 {% endblock content %}
 
 {% block sidebar %}
 <div class="content-section-sidebar bg-dark">
   <h3 class="text-light">Blog Topics</h3>
   <h6 class='text-muted bg-dark'>Want to be notified when there's a new post?</h6>
-  <h6 class='text-muted bg-dark'>Sign up <a href="{{ url_for('register')}}">Here</a>.</h6>
+  <h6 class='text-muted bg-dark'>Sign up <a href="{{ url_for('users.register')}}">Here</a>.</h6>
     <ul class="list-group">
       <li class="list-group-item list-group-item-light">Latest Posts</li>
       <li class="list-group-item list-group-item-light">Announcements</li>
