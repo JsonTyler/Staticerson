@@ -7,25 +7,36 @@ from flask_basicauth import BasicAuth
 from flask_mail import Mail
 from flaskblog.config import Config
 
-app = Flask(__name__)
-app.config.from_object(Config)
-mail = Mail(app)
+mail = Mail()
 
-db = SQLAlchemy(app)
+db = SQLAlchemy()
 
-admin = Admin(app, name='Admin Panel')
+admin = Admin(name='Admin Panel')
 
-basic_auth = BasicAuth(app)
+basic_auth = BasicAuth()
 
-bcrypt = Bcrypt(app)
-login_manager = LoginManager(app)
+bcrypt = Bcrypt()
+login_manager = LoginManager()
 login_manager.login_view = 'users.login'
 login_manager.login_message_category = 'dark'
 
-from flaskblog.users.routes import users
-from flaskblog.posts.routes import posts
-from flaskblog.main.routes import main
+def create_app(config_class=Config):
+    app = Flask(__name__)
+    app.config.from_object(Config)
 
-app.register_blueprint(users)
-app.register_blueprint(posts)
-app.register_blueprint(main)
+    mail.init_app(app)
+    db.init_app(app)
+    admin.init_app(app)
+    basic_auth.init_app(app)
+    bcrypt.init_app(app)
+    login_manager.init_app(app)
+
+    from flaskblog.users.routes import users
+    from flaskblog.posts.routes import posts
+    from flaskblog.main.routes import main
+
+    app.register_blueprint(users)
+    app.register_blueprint(posts)
+    app.register_blueprint(main)
+
+    return app
