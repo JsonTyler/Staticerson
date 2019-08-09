@@ -67,3 +67,14 @@ class Post(db.Model):
         return f"Post('{self.title}', '{self.date_posted}')"
 
 admin.add_view(ModelView(Post, db.session))
+
+class Gallery(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    filepath = db.Column(db.String(100), nullable=False)
+    location = db.Column(db.String(50), nullable=False)
+    caption = db.Column(db.String(75), nullable=False)
+
+    def __repr__(self):
+        return f"Post('{self.filepath}', '{self.location}', '{self.caption}')"
+
+admin.add_view(ModelView(Gallery, db.session))

@@ -27,7 +27,7 @@
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
               <a class="nav-item nav-link" href="{{ url_for('main.blog') }}">Blog</a>
-              <a class="nav-item nav-link" href="{{ url_for('main.gallery') }}">Gallery</a>
+              <a class="nav-item nav-link" href="{{ url_for('gall.gallery') }}">Gallery</a>
               <a class="nav-item nav-link" href="{{ url_for('main.about') }}">About</a>
             </div>
             <!-- Navbar Right Side -->
@@ -64,6 +64,8 @@
           {% block post %}{% endblock %}
           {% block request_reset %}{% endblock %}
           {% block reset_token %}{% endblock %}
+          {% block new_gallery %}{% endblock %}
+          {% block gall %}{% endblock %}
 
           {% if blog %}
             {% block content %}{% endblock %}
