@@ -2,10 +2,13 @@ body {
   background: #fafafa;
   color: #333333;
   margin-top: 5rem;
+  font-size: 1em;
+	font-family: 'Source Serif Pro', 'Helvetica Neue', serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: #444444;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .bg-steel {
@@ -106,4 +109,51 @@ a.article-title:hover {
 .btn-outline-info {
   background-color: #fff;
   border-color: #fff;
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.header {
+	padding: 8.5em 0;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.footer,
+.header-intro,
+.header-name {
+	text-align: center;
+}
+
+.header-intro {
+	margin-bottom: 0em;
+	color: #000;
+	font-size: 2.25em;
+	text-shadow: 0px 1px 0px #404040;
+}
+
+.header-name {
+	margin-top: -0.2em;
+	color: #000;
+	font-size: 5.0em;
+	text-shadow: 0px 3px 0px #404040;
+	font-weight: 700;
+}
+
+.footer {
+	padding: 2em 0;
+	color: #fff;
+	margin-top: 2em;
+}
+
+.footer p {
+	text-align: center;
 }
