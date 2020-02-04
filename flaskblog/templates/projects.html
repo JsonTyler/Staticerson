@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+<h1 class="text-light">Projects Page</h1>
+{% block proj %}
+<div class="container-fluid pt-2">
+  <div class="card-columns">
+    {% for img in project %}
+    <div class="card my-bg-dark">
+      <img src="{{ url_for('static', filename=img.filepath) }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title text-white">Title: {{ img.title }}</h5>
+        <p class="card-text text-white">Description: {{ img.caption }}</p>
+        <p class="card-text text-muted">Technologies: {{ img.language }}</p>
+        <a href="{{ img.link }}" class="btn btn-dark">Explore project</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock proj %}

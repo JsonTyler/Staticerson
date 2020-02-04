@@ -1,50 +1,40 @@
 {% extends "layout.html" %}
 
-{% block content %}
-    {% for post in posts.items %}
+{% block topic_algorithms %}
+    {% for story in stories.items %}
+      {% if story.topic.value == 'algorithms' %}
         <article class="media content-section-main">
+          <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + story.author.image_file) }}">
           <div class="media-body">
-              <img class="rounded-circle article-img float-left" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
             <div class="article-metadata">
+
               <span class="icon ">
                 <i class="fas fa-user"></i>
               </span>
-              <a class="mr-2" href="{{ url_for('main.about') }}">{{ post.author.username }}</a>
+              <a class="mr-2" href="{{ url_for('main.about') }}">{{ story.author.username }}</a>
 
               <span class="icon ">
                 <i class="fas fa-calendar"></i>
               </span>
 
-              <a class="mr-2 text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</a>
+              <a class="mr-2 text-muted">{{ story.date_posted.strftime('%Y-%m-%d') }}</a>
 	      
-
-
               <span class="icon ">
                 <i class="fas fa-tags"></i>
               </span>
-              <a class="mr-2 text-muted badge badge-light" href="{{ post.topic.value }}">{{ post.topic.value }}</a>
+              <a class="mr-2 text-muted badge badge-light">{{ story.topic.value }}</a>
 
             </div>
-            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
-            <img src="{{ post.image }}" width="100%" height=auto>
-            <p class="article-content">{{ post.content }}</p>
+            <h2><a class="article-title" href="#">{{ story.title }}</a></h2>
+            <img src="{{ story.image }}" width="100%" height=auto>
+            <p class="article-content">{{ story.content }}</p>
           </div>
         </article>
-    {% endfor %}
-    {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
-      {% if page_num %}
-        {% if posts.page == page_num %}
-          <a class="btn btn-info mb-4 bg-light text-dark" href="{{ url_for('main.blog', page=page_num) }}">{{ page_num }}</a>
-        {% else %}
-          <a class="btn btn-outline-info mb-4 bg-light text-dark" href="{{ url_for('main.blog', page=page_num) }}">{{ page_num }}</a>
-        {% endif %}
-      {% else %}
-      <a class="text-white">...</a>
       {% endif %}
     {% endfor %}
-{% endblock content %}
+{% endblock topic_algorithms %}
 
-<!-- {% block sidebar %}
+{% block sidebar %}
 <div class="content-section-sidebar">
   <a class="text-muted">Categories</a>
     <ul class="list-group">
@@ -59,4 +49,5 @@
         <a class="text-muted" href="{{ url_for('posts.topic_diy') }}">DIY</a>
     </ul>
 </div>
-{% endblock sidebar %} -->
+{% endblock sidebar %}
+

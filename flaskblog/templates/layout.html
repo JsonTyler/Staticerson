@@ -5,6 +5,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="/assets/vendor/nucleo/css/nucleo-icons.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link type="text/css" href="/assets/css/blk-design-system.min.css" rel="stylesheet">
+
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
@@ -16,9 +27,9 @@
         <title>JsonBytes</title>
     {% endif %}
 </head>
-<body class="bg-dark">
+<body class="my-bg-dark">
     <header class="site-header">
-      <nav class="navbar navbar-expand-md navbar-dark bg-dark border-bottom border-light rounded-bottom fixed-top">
+      <nav class="navbar navbar-expand-md my-bg-dark navbar-dark border-bottom border-light rounded-bottom fixed-top">
         <div class="container">
           <a class="navbar-brand mr-4" href="/">{ JsonBytes };</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,6 +39,8 @@
             <div class="navbar-nav mr-auto">
               <a class="nav-item nav-link" href="{{ url_for('main.blog') }}">Blog</a>
               <a class="nav-item nav-link" href="{{ url_for('gall.gallery') }}">Gallery</a>
+	      <!-- <a class="nav-item nav-link" href="http://jsonbytes.com">Projects</a>-->
+              <a class="nav-item nav-link" href="{{ url_for('proj.project') }}">Projects</a>
               <a class="nav-item nav-link" href="{{ url_for('main.about') }}">About</a>
             </div>
             <!-- Navbar Right Side -->
@@ -46,7 +59,7 @@
     </header>
     <main role="main" class="container">
       <div class="row">
-        <div class="col-md-8">
+        <div class="">
           {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
               {% for category, message in messages %}
@@ -62,22 +75,30 @@
           {% block register %}{% endblock %}
           {% block account %}{% endblock %}
           {% block post %}{% endblock %}
+          {% block topic_algorithms %}{% endblock %}
+          {% block topic_data %}{% endblock %}
+          {% block topic_diy %}{% endblock %}
+          {% block topic_film %}{% endblock %}
+          {% block topic_frameworks %}{% endblock %}
+          {% block topic_libraries %}{% endblock %}
+          {% block topic_programming %}{% endblock %}
+          {% block topic_projects %}{% endblock %}
+          {% block topic_thoughts %}{% endblock %}
           {% block request_reset %}{% endblock %}
           {% block reset_token %}{% endblock %}
           {% block new_gallery %}{% endblock %}
           {% block gall %}{% endblock %}
+          {% block proj %}{% endblock %}
           {% block about %}{% endblock %}
+	        <!-- {% block sidebar %}{% endblock %} -->
 
           {% if blog %}
             {% block content %}{% endblock %}
-          {% endif %}
+	        {% endif %}
           {% if gallery %}
             {% block gallery %}{% endblock %}
           {% endif %}
         </div>
-        {% if blog %}
-          {% block sidebar %}{% endblock %}
-        {% endif %}
       </div>
     </main>
 
