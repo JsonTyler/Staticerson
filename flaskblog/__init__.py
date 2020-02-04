@@ -39,13 +39,14 @@ def create_app(config_class=Config):
     from flaskblog.main.routes import main
     from flaskblog.errors.handlers import errors
     from flaskblog.gallery.routes import gall
+    from flaskblog.project.routes import proj
 
     app.register_blueprint(users)
     app.register_blueprint(posts)
     app.register_blueprint(main)
     app.register_blueprint(errors)
     app.register_blueprint(gall)
-
+    app.register_blueprint(proj)
 
     with app.app_context():
         db.create_all()

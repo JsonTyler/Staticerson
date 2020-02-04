@@ -5,6 +5,7 @@ from flaskblog import db, login_manager, admin, basic_auth
 from flask_login import UserMixin
 from flask_admin.contrib.sqla import ModelView
 from werkzeug.exceptions import HTTPException
+import enum
 
 # login failed handler, from:
 # https://computableverse.com/blog/flask-admin-using-basicauth
@@ -16,7 +17,7 @@ class AuthException(HTTPException):
         ))
 
 
-# overwrite ModelView of flask_admin to restrict access to admin page
+# overwrite ModelView of flask_admin to restrict access to admin pageGallery
 class ModelView(ModelView):
     def is_accessible(self):
         if not basic_auth.authenticate():
@@ -55,16 +56,28 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return f"User('{self.username}, {self.email}, {self.image_file}')"
 
+class TagType(enum.Enum):
+    programming = 'programming'
+    frameworks='frameworks'
+    libraries='libraries'
+    algorithms='algorithms'
+    data='data-structures'
+    projects='projects'
+    film='film'
+    thoughts='thoughts'
+    diy='diy'
+
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    tags = db.Column(db.String(50), nullable=False)
+    topic = db.Column(db.Enum(TagType, nullable=False))
     content = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     def __repr__(self):
         return f"Post('{self.title}', '{self.date_posted}')"
+   
 
 admin.add_view(ModelView(Post, db.session))
 
@@ -75,6 +88,19 @@ class Gallery(db.Model):
     caption = db.Column(db.String(75), nullable=False)
 
     def __repr__(self):
-        return f"Post('{self.filepath}', '{self.location}', '{self.caption}')"
+        return f"Gallery('{self.filepath}', '{self.location}', '{self.caption}')"
 
 admin.add_view(ModelView(Gallery, db.session))
+
+class Project(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    filepath = db.Column(db.String(100), nullable=False)
+    link = db.Column(db.String(500), nullable=False)
+    title = db.Column(db.String(50), nullable=False)
+    language = db.Column(db.String(100), nullable=False)
+    caption = db.Column(db.String(250), nullable=False)
+
+    def __repr__(self):
+        return f"Project('{self.filepath}', '{self.link}', '{self.title}', '{self.language}', '{self.caption}')"
+
+admin.add_view(ModelView(Project, db.session))

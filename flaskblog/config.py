@@ -1,12 +1,16 @@
 import os
+import json
+
+with open('/etc/flaskersonconfig.json') as config_file:
+	config = json.load(config_file)
 
 class Config:
-    SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
-    BASIC_AUTH_USERNAME = 'username'
-    BASIC_AUTH_PASSWORD = 'password'
+    SECRET_KEY = config.get('SECRET_KEY')
+    SQLALCHEMY_DATABASE_URI = config.get('SQLALCHEMY_DATABASE_URI')
+    BASIC_AUTH_USERNAME = config.get('BASIC_AUTH_USERNAME')
+    BASIC_AUTH_PASSWORD = config.get('BASIC_AUTH_PASSWORD')
     MAIL_SERVER = 'smtp.gmail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
-    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
-    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    MAIL_USERNAME = config.get('MAIL_USERNAME')
+    MAIL_PASSWORD = config.get('MAIL_PASSWORD')

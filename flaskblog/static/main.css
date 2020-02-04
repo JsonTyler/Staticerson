@@ -1,6 +1,6 @@
 body {
-  background: #fafafa;
-  color: #333333;
+  background: #000;
+  color: #fff;
   margin-top: 5rem;
   font-size: 1em;
 	font-family: 'Source Serif Pro', 'Helvetica Neue', serif;
@@ -11,8 +11,16 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-.bg-steel {
-  background-color: #5f788a;
+.my-bg-dark {
+  background-color: #000;
+}
+
+.my-primary {
+  color: #86C232;
+}
+
+.my-secondary {
+  color: #86C232;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -20,54 +28,67 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .site-header .navbar-nav .nav-link:hover {
-  color: #ffffff;
+  color: #fff;
 }
 
 .site-header .navbar-nav .nav-link.active {
   font-weight: 500;
 }
 
+.navbar-dark .navbar-brand {
+  color: #86C232;
+}
+
 .content-section-main {
-  background: #ffffff;
   padding: 10px 20px;
-  border: 1px solid #dddddd;
   border-radius: 3px;
   margin-bottom: 20px;
   word-wrap: break-word;
+  padding-left: 100px;
+}
+
+.content-section-sidebar a {
+  color: #fff;
+  font-size: 15px;
+  display: block;
+  padding: 6px 8px 6px 16px;
 }
 
 .content-section-sidebar {
-
+  height: 100%;
+  width: auto;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  overflow-x: hidden;
+  padding-top: 25px;
+  border-right-color: #fff;
+  border-right-style: solid;
+  border-right-width: thin
 }
 
 .article-title {
-  color: #444444;
-}
-
-a.article-title:hover {
-  color: #428bca;
-  text-decoration: none;
+  color: #fff;
 }
 
 .article-content {
   white-space: pre-line;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 .article-img {
   height: 65px;
   width: 65px;
-  margin-right: 16px;
+  margin-right: 6px;
 }
 
 .article-metadata {
   padding-bottom: 1px;
   margin-bottom: 4px;
   border-bottom: 1px solid #e3e3e3
-}
-
-.article-metadata a:hover {
-  color: #333;
-  text-decoration: none;
 }
 
 .article-svg {
@@ -101,9 +122,9 @@ a.article-title:hover {
 
  /* changed bootstrap info theme to my page's b/w theme for hover/normal */
 .btn-outline-info:hover {
-  background-color: #fff;
-  color: #000;
-  border-color: #fff;
+  background-color: #000;
+  color: #86C232;
+  border-color: #000;
 }
 
 .btn-outline-info {
@@ -111,14 +132,21 @@ a.article-title:hover {
   border-color: #fff;
 }
 
+.my-btn-info{
+  border-color: #86C232;
+  color: #fff;
+}
+
 a {
-	color: #000;
+	color: #86C232;
 	text-decoration: none;
 	font-weight: bold;
 }
 
 a:hover {
 	text-decoration: underline;
+  color: #86C232;
+
 }
 
 .header {
@@ -135,14 +163,12 @@ a:hover {
 
 .header-intro {
 	margin-bottom: 0em;
-	color: #000;
 	font-size: 2.25em;
 	text-shadow: 0px 1px 0px #404040;
 }
 
 .header-name {
 	margin-top: -0.2em;
-	color: #000;
 	font-size: 5.0em;
 	text-shadow: 0px 3px 0px #404040;
 	font-weight: 700;
@@ -156,4 +182,46 @@ a:hover {
 
 .footer p {
 	text-align: center;
+}
+
+.my-navbar-bg {
+  background-color: #000;
+}
+
+.about,
+.passion,
+.contact {
+	max-width: 100.5em;
+	margin: 0 auto;
+	margin-top: 3em;
+	line-height: 1.5em;
+}
+
+.passion h3 {
+	color: #fff;
+}
+
+.social {
+  color: #86C232;
+  text-align: center;
+  margin-left: -2em;
+}
+
+.social > li {
+  list-style: none;
+  display: inline-block;
+  margin 0 1.0em;
+}
+
+.card {
+  border-color: #86C232;
+  border-width: medium;
+}
+
+.tags {
+  color: black;
+}
+
+.modal-footer {
+  color: black;
 }
