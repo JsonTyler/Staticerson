@@ -1,3 +1,9 @@
+# vscode
+*.vscode
+
+# db's
+*.db
+
 # images
 *.jpg
 *.png
