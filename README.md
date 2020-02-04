@@ -14,3 +14,8 @@ To check update went through:
   - Get to ~/Dev/flaskerson/flaskblog in terminal
   - Put "sqlite3 site.db" in terminal
   - Put: .tables
+
+# file transfer instructions:
+
+To transfer from local to remote (ex: images/files)
+  - scp filename brunojt@45.79.14.99:/home/brunojt
