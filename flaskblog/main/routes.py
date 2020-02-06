@@ -23,4 +23,6 @@ def blog():
     posts = Post.query.order_by(Post.date_posted.asc()).paginate(page, per_page)
     return render_template('blog.html', posts=posts, title="Blog", blog=blog)
 
-
+@main.route("/test")
+def test():
+    return render_template('test.html', title="Test", test=test)
