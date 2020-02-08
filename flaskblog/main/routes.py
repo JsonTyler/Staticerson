@@ -25,4 +25,7 @@ def blog():
 
 @main.route("/test")
 def test():
-    return render_template('test.html', title="Test", test=test)
+    page = request.args.get('page', 1, type=int)
+    per_page = 5
+    posts = Post.query.order_by(Post.date_posted.asc()).paginate(page, per_page)
+    return render_template('test.html', posts=posts, title="Test", test=test)
