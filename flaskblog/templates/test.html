@@ -1637,12 +1637,6 @@
 									
 								</div>
 								{% endfor %}
-
-								<div class='post-more' >
-									<a href='#' class='more-link' >
-										Load More
-									</a>
-								</div>
 								
 							</div>
 							
@@ -1652,24 +1646,10 @@
 									
 									<div class='sidebar-widget' >
 										
-										<div class='search-box' >
-											
-											<input type='text' placeholder='Search' class='search-input' >
-											
-											<a class='search-btn' href='#' >
-												<i class='ion-ios-search' ></i>
-											</a>
-											
-										</div>
-										
-									</div>
-									
-									<div class='sidebar-widget' >
-										
 										<div class='widget-header' >
 											<h4>
 												<i class='ion-document' ></i>
-												Recent Posts
+												Recent Posts Titles
 											</h4>
 										</div>
 										
@@ -1684,6 +1664,30 @@
 												
 											</ul>
 										{% endfor %}
+
+										<div class='sidebar-widget' >
+										
+											<div class='widget-header' >
+												<h4>
+													<i class='ion-document' ></i>
+													Recent Posts Topics
+												</h4>
+											</div>
+											
+
+										{% for post in posts.items[-3:] %}
+											<ul class='sidebar-list' >
+												
+												<li>
+													<a href='#' >
+														{{ post.topic.value }}
+													</a>
+												</li>							
+												
+											</ul>
+										{% endfor %}
+
+
 										
 										
 									</div>
