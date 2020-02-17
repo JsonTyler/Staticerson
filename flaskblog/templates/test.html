@@ -5,7 +5,7 @@
 		===============================================================================-->
 		<div id='preloader' >
 			<div class='loader' >
-				<img src='img/load.gif' alt='preloader' >
+				<img src='{{ url_for('static', filename='myThemes/sympyTheme/img/load.gif')}}' alt='preloader' >
 			</div>
 		</div>
 		
@@ -30,7 +30,7 @@
 					<div class='front-person-img' >
 						
 						<!--person's image-->
-						<img src="{{ url_for('static', filename='avatarTransparent.png')}}" alt='my avatar' >
+						<img src="{{ url_for('static', filename='myThemes/sympyTheme/img/avatarTransparent.png')}}" alt='my avatar' >
 						
 					</div>
 					
@@ -89,11 +89,7 @@
 							<li>
 								<a href='#' data-section='contact' >Contact</a>
 							</li>
-							
-							<li>
-								<a href='#' >Hire Me!</a>
-							</li>
-							
+													
 						</ul>
 						
 					</nav>
@@ -143,7 +139,7 @@
 							<div class='col-md-4' >
 								<div class='about-person-img' >
 									
-									<img src="{{ url_for('static', filename='meGumWall-min.jpg')}}" alt='me'>
+									<img src="{{ url_for('static', filename='myThemes/sympyTheme/img/meGumWall-min.jpg')}}" alt='me'>
 									
 								</div>
 							
@@ -202,7 +198,6 @@
 								
 								<a href="mailto: jsonbytesllc@gmail.com" class='symp-btn' >Hire Me For Work</a>
 								
-								<a href='#' class='symp-btn link-btn' ><i class='ion-ios-download' ></i>Download Resume</a>
 								
 							</div>
 						
@@ -324,14 +319,14 @@
 							
 							<div class='col-md-4 col-sm-6 funfact' >
 								<div class='content' >
-									<h4>#TODO</h4>
+									<h4>0</h4>
 									<p>Blog Posts</p>
 								</div>
 							</div>
 							
 							<div class='col-md-4 col-sm-6 funfact' >
 								<div class='content' >
-									<h4>#TODO</h4>
+									<h4>0</h4>
 									<p>Gallery Photos</p>
 								</div>
 							</div>
@@ -384,26 +379,24 @@
 									
 									<div class='testimonial' >
 										<p>
-											Ad oportere voluptatibus nec, sea ei civibus praesent. At timeam expetenda inciderint has. Invidunt constituto ne per, paulo omnium quaerendum his eu, cu congue consul cetero. Invidunt constituto ne per, paulo omnium quaerendum his eu, cu congue consul cetero.
-										</p>
+											
+										I had the pleasure of working with Jason on a funded research project. He was very motivated to learn new things and was very productive as well as creative in his research. He was always well planned and went about accomplishing things as per the plan. I was very impressed with his programming skills and logical thinking abilities. I wish him all the best in his endeavors.
 										
 										<div class='author' >
 											<h4>Dr. Natarajan Meghanathan</h4>
 											<p>Computer Science Professor/Research Head @ JSUMS</p>
 										</div>
 									</div>
-									
 									<div class='testimonial' >
 										<p>
-											Ad oportere voluptatibus nec, sea ei civibus praesent. At timeam expetenda inciderint has. Invidunt constituto ne per, paulo omnium quaerendum his eu, cu congue consul cetero. Invidunt constituto ne per, paulo omnium quaerendum his eu, cu congue consul cetero.
-										</p>
+											
+										I became familiar with Mr. Bruno during his undergraduate matriculation at Jackson State University. During this time, I served as his instructor and research supervisor. He exhibited enthusiasm, initiative, and commitment in his academic, research, and professional pursuits. He is definitely someone that works hard to reach the goals. In my course of approximately 20 students, I would rank Jason as being in the top 5% in my class.  He worked as a student researcher for a year and from our research, we produced one publication entitled “Timely: A Chain of Custody Data Visualizer” that was presented at the IEEE Southeast Con 2019 Conference.   Jason is a highly capable and hard working individual. With his determination and hard work, I have no doubt that he will succeed in any endeavors of his undertaking. He would be a great asset to any organization.
 										
 										<div class='author' >
 											<h4>Dr. April Tanner</h4>
 											<p>Computer Science Professor/Research Head @ JSUMS</p>
 										</div>
 									</div>
-									
 									
 									
 									
@@ -1000,147 +993,24 @@
 				<div class='pricing-block section-block' >
 					<div class='container' >
 						
-						<div class='section-header text-center' >
-							<h2 class='animate text-over-block' >Pricing</h2>
+						<div class='section-header text-center' style="padding: 20px;" >
+							<b><h2 class='animate text-over-block text-white' >Reach Out</h2></b>
 							<!--divider-->
-							<div class='divider-draft center' ></div>
+							<div class='divider-draft center text-white' ></div>
 							<!--/divider-->
-							<p>
-								How much I charge (Subject to change)
+							<p class="text-white">
+								Interested in hiring me for a project?
 							</p>
+
+							<a href="mailto: jsonbytesllc@gmail.com"><button type="button" class="btn btn-dark center" style="align-items: center;">Get in Touch!</button></a>
+								
 						</div>
-						
-						<div class='row' >
-							
-							<div class='col-md-4 text-center' >
-								
-								<div class='pricing-table' >
-									
-									<div class='header' >
-										
-										<h4>Website Maintenance Plan</h4>
-										
-										<div class='price' >
-											<span class='currency' >$</span>
-											<span class='amount' >100</span>
-											<span class='period' >/mo</span>
-										</div>
-										
-										
-									</div>
-									
-									<ul class='table-items' >
-										
-										<li>
-											Weekly Website Maintenance
-										</li>
-										<li>
-											Monitoring Errors and Outages
-										</li>
-										<li>
-											Weekly Cloud Backups
-										</li>
-										<li>
-											Monthly Checkin Meeting
-										</li>
-									</ul>
-									
-									<a href='#' class='table-btn' >
-										Choose This
-									</a>
-									
-								</div>
-								
-							</div>
-							<div class='col-md-4 text-center' >
-								
-								<div class='pricing-table' >
-									
-									<div class='header' >
-										
-										<h4>Website Creator Plan</h4>
-										
-										<div class='price' >
-											<span class='currency' >$</span>
-											<span class='amount' >TBD</span>
-											<span class='period' >/mo</span>
-										</div>
-										
-										
-									</div>
-									
-									<ul class='table-items' >
-										
-										<li>
-											Phone Consult To Understand Website Goals
-										</li>
-										<li>
-											Custom Logo Design
-										</li>
-										<li>
-											Responsive Website or Web App Design
-										</li>
-										<li>
-											3 - 5 Page Website (Upgrades available)
-										</li>
-										
-									</ul>
-									
-									<a href='#' class='table-btn' >
-										Choose This
-									</a>
-									
-								</div>
-								
-							</div>
-							
-							<div class='col-md-4 text-center' >
-								
-								<div class='pricing-table' >
-									
-									<div class='header' >
-										
-										<h4>Custom Fixed-Price Plan</h4>
-										
-										<div class='price' >
-											<span class='currency' >$</span>
-											<span class='amount' >TBD</span>
-											<span class='period' ></span>
-										</div>
-										
-									</div>
-									
-									<ul class='table-items' >
-										
-										<li>
-											Custom Logo Design
-										</li>
-										<li>
-											Responsive Website or App Design
-										</li>
-										<li>
-											Digital Marketing Support
-										</li>
-										<li>
-											SEO Services
-										</li>
-									</ul>
-									
-									<a href='#' class='table-btn' >
-										Choose This
-									</a>
-									
-								</div>
-								
-							</div>
-														
-						</div>
-						
+					
 					</div>
 				</div>
 				
 				<div class='process-block bg-lightgray section-block' >
-					<div class='container' >
+					<div class='container' style="text-align: center;">
 						
 						<div class='section-header text-center' >
 							<h2>Work Process</h2>
@@ -1263,7 +1133,8 @@
 									
 									<div class='testimonial' >
 										<p>
-											Ad oportere voluptatibus nec, sea ei civibus praesent. At timeam expetenda inciderint has. Invidunt constituto ne per, paulo omnium quaerendum his eu, cu congue consul cetero. Invidunt constituto ne per, paulo omnium quaerendum his eu, cu congue consul cetero.
+											
+										I had the pleasure of working with Jason on a funded research project. He was very motivated to learn new things and was very productive as well as creative in his research. He was always well planned and went about accomplishing things as per the plan. I was very impressed with his programming skills and logical thinking abilities. I wish him all the best in his endeavors.
 										</p>
 										
 										<div class='author' >
@@ -1271,21 +1142,17 @@
 											<p>Computer Science Professor/Research Head @ JSUMS</p>
 										</div>
 									</div>
-									
 									<div class='testimonial' >
 										<p>
-											Ad oportere voluptatibus nec, sea ei civibus praesent. At timeam expetenda inciderint has. Invidunt constituto ne per, paulo omnium quaerendum his eu, cu congue consul cetero. Invidunt constituto ne per, paulo omnium quaerendum his eu, cu congue consul cetero.
-										</p>
+											
+										I became familiar with Mr. Bruno during his undergraduate matriculation at Jackson State University. During this time, I served as his instructor and research supervisor. He exhibited enthusiasm, initiative, and commitment in his academic, research, and professional pursuits. He is definitely someone that works hard to reach the goals. In my course of approximately 20 students, I would rank Jason as being in the top 5% in my class.  He worked as a student researcher for a year and from our research, we produced one publication entitled “Timely: A Chain of Custody Data Visualizer” that was presented at the IEEE Southeast Con 2019 Conference.   Jason is a highly capable and hard working individual. With his determination and hard work, I have no doubt that he will succeed in any endeavors of his undertaking. He would be a great asset to any organization.
 										
 										<div class='author' >
 											<h4>Dr. April Tanner</h4>
 											<p>Computer Science Professor/Research Head @ JSUMS</p>
 										</div>
 									</div>
-									
-									
-									
-									
+								
 								</div>
 								
 							</div>
@@ -1362,132 +1229,40 @@
 								
 							</div>
 						</div>
+											
 						
-						<div id='portfolio-filters' >
-							<ul>
-								<li>
-									<a href='#' data-group='all' class='active' >All</a>
-								</li>
-								<li>
-									<a href='#' data-group='code' >Programming</a>
-								</li>
-								<li>
-									<a href='#' data-group='film' >Film</a>
-								</li>
-								<li>
-									<a href='#' data-group='photo' >Photography</a>
-								</li>
-							</ul>
+						<div class='portfolio-items'>
+							{% for item in project %}
+							<div class='item' >
+								<div class='inner' >
+									
+									<img alt='project-img' src="{{ url_for('static', filename='myThemes/sympyTheme/img/' + item.filepath) }}" >
+									
+									<div class='caption' >
+										
+										<div class='caption-inner' >
+										
+											<h4>{{ item.title }}</h4>
+											
+											<ul class='links' >
+												
+												<p>{{item.caption}}</p>
+												<p>{{item.languages}}</p>
+												<p>Check it out: <b><a href="{{item.link}}"> {{item.link}}</a></b></p>
+												
+											</ul>
+										
+										</div>
+										
+										
+									</div>
+									
+								</div>
+							</div>							
+								
+							{% endfor %}	
 						</div>
 						
-						<div id='portfolio-grid' class='portfolio-items' >
-							
-							<div class='item' data-groups='["all","code","photo"]' >
-								<div class='inner' >
-									
-									<img alt='symp' src='img/portfolio/1.jpg' >
-									
-									<div class='caption' >
-										
-										<div class='caption-inner' >
-										
-											<h4>Project Title</h4>
-											
-											<ul class='links' >
-												
-												<li>
-													<a href='work.html' >
-														<i class='ion-ios-plus-empty' ></i>
-													</a>
-												</li>
-												
-												<li>
-													<a href='img/portfolio/1.jpg' class='image-link' >
-														<i class='ion-ios-search' ></i>
-													</a>
-												</li>
-												
-											</ul>
-										
-										</div>
-										
-										
-									</div>
-									
-								</div>
-							</div>
-							
-							<div class='item' data-groups='["all","code"]' >
-								<div class='inner' >
-									
-									<img alt='symp' src='img/portfolio/2.jpg' >
-									
-									<div class='caption' >
-										
-										<div class='caption-inner' >
-										
-											<h4>Project Title</h4>
-											
-											<ul class='links' >
-												
-												<li>
-													<a href='work.html' >
-														<i class='ion-ios-plus-empty' ></i>
-													</a>
-												</li>
-												
-												<li>
-													<a href='img/portfolio/2.jpg' class='image-link' >
-														<i class='ion-ios-search' ></i>
-													</a>
-												</li>
-												
-											</ul>
-										
-										</div>
-										
-										
-									</div>
-									
-								</div>
-							</div>
-							
-							<div class='item' data-groups='["all","code"]' >
-								<div class='inner' >
-									
-									<img alt='symp' src='img/portfolio/3.jpg' >
-									
-									<div class='caption' >
-										
-										<div class='caption-inner' >
-										
-											<h4>Project Title</h4>
-											
-											<ul class='links' >
-												
-												<li>
-													<a href='work.html' >
-														<i class='ion-ios-plus-empty' ></i>
-													</a>
-												</li>
-												
-												<li>
-													<a href='img/portfolio/3.jpg' class='image-link' >
-														<i class='ion-ios-search' ></i>
-													</a>
-												</li>
-												
-											</ul>
-										
-										</div>
-										
-										
-									</div>
-									
-								</div>
-							</div>					
-							
-						</div>
 						
 					</div>
 					
@@ -1544,7 +1319,7 @@
 							<div class='section-header text-center' >
 								
 								<h2>My Blog</h2>
-								
+								<h3 style="color: red;">--COMING SOON--</h3>
 								<!--divider-->
 								<div class='divider-draft center' ></div>
 								<!--/divider-->
@@ -1567,14 +1342,14 @@
 						<div class='row' >
 							
 							<div class='col-md-8' >
-								{% for post in posts.items %}
+								
 								<div class='post' >
 										
 									<div class='content' >
 										
 										<h4>
 											<a>
-												{{ post.title }}
+												
 												
 											</a>
 										</h4>
@@ -1583,15 +1358,15 @@
 											
 											<li>
 												<i class='ion-ios-person' ></i>
-												<span>{{ post.author.username }}</span>
+												<span></span>
 												<li>
 												<i class='ion-ios-clock' ></i>
-												<span>{{ post.date_posted.strftime('%Y-%m-%d') }}</span>
+												<span></span>
 											</li>
 											
 											<li>
 												<i class='ion-ios-chatbubble' ></i>
-												<span>{{ post.topic.value }}</span>
+												<span></span>
 											</li>
 																					
 											
@@ -1620,7 +1395,7 @@
 											
 										</script>
 
-										<p style="display: hidden;" class='blog_content'>{{ post.content }}</p>
+										<p style="display: hidden;" class='blog_content'></p>
 									
 										<button onclick='toggler()' class='read-more'>
 											Read More
@@ -1630,7 +1405,7 @@
 									</div>
 									
 								</div>
-								{% endfor %}
+								
 								
 							</div>
 							
@@ -1647,17 +1422,17 @@
 											</h4>
 										</div>
 										
-										{% for recent in posts.items[-3:] %}
+										
 											<ul class='sidebar-list' >
 												
 												<li>
 													<a href='#' >
-														{{ recent.title }}
+														
 													</a>
 												</li>							
 												
 											</ul>
-										{% endfor %}
+										
 
 										<div class='sidebar-widget' >
 										
@@ -1669,17 +1444,17 @@
 											</div>
 											
 
-										{% for post in posts.items[-3:] %}
+										
 											<ul class='sidebar-list' >
 												
 												<li>
 													<a href='#' >
-														{{ post.topic.value }}
+														
 													</a>
 												</li>							
 												
 											</ul>
-										{% endfor %}
+										
 
 
 										

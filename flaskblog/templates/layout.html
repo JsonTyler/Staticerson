@@ -41,34 +41,7 @@
 </head>
 <body class="my-bg-dark">
     <header class="site-header">
-      <nav class="navbar navbar-expand-md my-bg-dark navbar-dark border-bottom border-light rounded-bottom fixed-top">
-        <div class="container">
-          <a class="navbar-brand mr-4" href="/">{ JsonBytes };</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarToggle">
-            <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="{{ url_for('main.test') }}">Test</a>
-              <a class="nav-item nav-link" href="{{ url_for('main.blog') }}">Blog</a>
-              <a class="nav-item nav-link" href="{{ url_for('gall.gallery') }}">Gallery</a>
-	      <!-- <a class="nav-item nav-link" href="http://jsonbytes.com">Projects</a>-->
-              <a class="nav-item nav-link" href="{{ url_for('proj.project') }}">Projects</a>
-              <a class="nav-item nav-link" href="{{ url_for('main.about') }}">About</a>
-            </div>
-            <!-- Navbar Right Side -->
-            <div class="navbar-nav">
-              {% if current_user.is_authenticated %}
-              <a class="nav-item nav-link" href="{{ url_for('users.account') }}">Account</a>
-              <a class="nav-item nav-link" href="{{ url_for('users.logout') }}">Logout</a>
-              {% else %}
-                <a class="nav-item nav-link" href="{{ url_for('users.login') }}">Login</a>
-                <a class="nav-item nav-link" href="{{ url_for('users.register') }}">Register</a>
-              {% endif %}
-            </div>
-          </div>
-        </div>
-      </nav>
+     
     </header>
     <main role="main" class="container">
       <div class="row">
@@ -85,33 +58,8 @@
 
           {% block test %}{% endblock %}
           {% block error %}{% endblock %}
-          {% block login %}{% endblock %}
-          {% block register %}{% endblock %}
-          {% block account %}{% endblock %}
-          {% block post %}{% endblock %}
-          {% block topic_algorithms %}{% endblock %}
-          {% block topic_data %}{% endblock %}
-          {% block topic_diy %}{% endblock %}
-          {% block topic_film %}{% endblock %}
-          {% block topic_frameworks %}{% endblock %}
-          {% block topic_libraries %}{% endblock %}
-          {% block topic_programming %}{% endblock %}
-          {% block topic_projects %}{% endblock %}
-          {% block topic_thoughts %}{% endblock %}
-          {% block request_reset %}{% endblock %}
-          {% block reset_token %}{% endblock %}
-          {% block new_gallery %}{% endblock %}
-          {% block gall %}{% endblock %}
           {% block proj %}{% endblock %}
-          {% block about %}{% endblock %}
-	        <!-- {% block sidebar %}{% endblock %} -->
 
-          {% if blog %}
-            {% block content %}{% endblock %}
-	        {% endif %}
-          {% if gallery %}
-            {% block gallery %}{% endblock %}
-          {% endif %}
         </div>
       </div>
     </main>
