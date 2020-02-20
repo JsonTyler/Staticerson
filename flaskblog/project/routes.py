@@ -8,18 +8,10 @@ from flaskblog.project.forms import ProjectForm
 
 proj = Blueprint('proj', __name__)
 
-# email stuff
-port = 465
-username = "jasondreams0513@gmail.com"
-receiver_email = "jasondreams0513@gmail.com"
-
-#new
 project = ""
 
-@proj.route("/")
-def project():
+@proj.route("/", methods=["POST", "GET"])
+def project(): 
     project = Project.query.order_by(Project.title.desc())
     projects = Project.query.all()
     return render_template('test.html', title='Projects', project=project)
-
-# data
