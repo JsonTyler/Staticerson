@@ -286,9 +286,9 @@ body.section-show .section.active{
 	bottom:0;
 	background:#FFF;
 	z-index:199;
-	-webkit-transition:all .5s ease;
-	-moz-transition:all .5s ease;
-	transition:all .5s ease;
+	-webkit-transition:all .2s ease;
+	-moz-transition:all .2s ease;
+	transition:all .2s ease;
 }
 .js #preloader .loader{
 	position:absolute;
@@ -360,9 +360,9 @@ body.section-show .transition-mask{
 	z-index:22;
 	transform:rotate(45deg);
 	overflow:hidden;
-	-webkit-animation: fill2 .8s .4s both ease;
-	-moz-animation: fill2 .8s .4s both ease;
-	animation: fill2 .8s .4s both ease;
+	-webkit-animation: fill2 .4s .2s both ease;
+	-moz-animation: fill2 .4s .2s both ease;
+	animation: fill2 .4s .2s both ease;
 }
 body .transition-mask:before{
 	content: ' ';
@@ -373,9 +373,9 @@ body .transition-mask:before{
 	width:100%;
 }
 body.section-show .transition-mask:before{
-	-webkit-animation: fill .4s both ease;
-	-moz-animation: fill .4s both ease;
-	animation: fill .4s both ease;
+	-webkit-animation: fill .2s both ease;
+	-moz-animation: fill .2s both ease;
+	animation: fill .2s both ease;
 	background:#CCC;
 }
 
@@ -466,9 +466,9 @@ body.section-show .transition-mask:before{
 	background:#F0F0F0;
 	position:relative;
 	z-index:15;
-	-webkit-transition:height .5s .3s ease, transform .5s .8s ease;
-	-moz-transition:height .5s .3s ease, transform .5s .8s ease;
-	transition:height .5s .3s ease, transform .5s .8s ease;
+	-webkit-transition:height .4s .2s ease, transform .4s .6s ease;
+	-moz-transition:height .4s .2s ease, transform .4s .6s ease;
+	transition:height .4s .2s ease, transform .4s .6s ease;
 	margin:200px auto;
 	margin-bottom:0;
 	-webkit-transform:rotate(45deg);
@@ -589,9 +589,9 @@ body.section-show .transition-mask:before{
 	font-size:14px;
 	padding:25px 0;
 	cursor:pointer;
-	-webkit-transition:all .3s ease;
-	-moz-transition:all .3s ease;
-	transition:all .3s ease;
+	-webkit-transition:all .2s ease;
+	-moz-transition:all .2s ease;
+	transition:all .2s ease;
 	position:relative;
 	color:#999;
 	text-align:left;
@@ -612,9 +612,9 @@ body.section-show .transition-mask:before{
 	vertical-align:middle;
 	margin-right:15px;
 	font-size:0;
-	-webkit-transition:all .3s ease;
-	-moz-transition:all .3s ease;
-	transition:all .3s ease;
+	-webkit-transition:all .2s ease;
+	-moz-transition:all .2s ease;
+	transition:all .2s ease;
 	display:none;
 }
 .front-person-links > ul > li > a:after{
