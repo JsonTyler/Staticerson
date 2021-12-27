@@ -7,7 +7,7 @@ Staticerson
 This is the code for the current version of my personal resume & portfolio site.
 
 ## Live Version <img src="./static/myThemes/sympyTheme/img/avatarTransparent.png" width="40" />
-#### Link: [www.jasontylerrodriguez.com](https://www.jasontylerrodriguez.com)
+#### Link: [Demo](https://www.jasontylerrodriguez.com)
 
 ## What technologies does it use? <img src="./static/myThemes/sympyTheme/img/avatarTransparent.png" width="40" />
 Bootstrap, HTML5/CSS3, Javascript
