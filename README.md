@@ -4,7 +4,7 @@
 #### Name 
 Staticerson
 #### Purpose:
-This is the code for the current version of my personal resume & portfolio site.
+The current version of my personal resume & portfolio site.
 
 ## Live Version <img src="./static/myThemes/sympyTheme/img/avatarTransparent.png" width="40" />
 #### Link: [Demo](https://www.jasontylerrodriguez.com)
